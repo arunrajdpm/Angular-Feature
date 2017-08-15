@@ -1,0 +1,53 @@
+<div flex="100" layout="row">
+      <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"    
+        md-whiteframe="4">
+      <md-toolbar class="md-toolbar-tools" layout="row" layout-align="center center" >
+            <span>Featuress</span>
+      </md-toolbar>
+      <md-list flex>
+            <div ng-repeat="(key,value) in sideMenuContent ">
+        <md-subheader class="md-no-sticky">{{value.name}}</md-subheader>
+            <md-list-item ng-repeat="item in value.content" ui-sref="Table"  class="md-3-line"     >
+                        {{item}}
+            </md-list-item>
+        <md-divider ></md-divider></div>
+      </md-list>
+     
+
+      </md-sidenav>
+
+
+
+     <md-content flex="20" flex-xs="100" ng-controller="todoCtrl" layout-padding>
+        
+           <md-card   flex="100"> 
+                  <md-toolbar class="md-toolbar-tools minHeight" layout="row" layout-align="center center" >
+                        <span class="md-caption">TO DO TASK</span>
+                  </md-toolbar>
+                  <ol class="md-caption">
+                       <div layout="row" ng-repeat="data in todo">
+                              <li flex="70">                       
+                                    {{data.name}}
+                              </li>
+                              <md-checkbox ng-model="data.completed" ng-change="taskCompleted(data, $event)" aria-label="Checkbox">
+                              </md-checkbox>
+                       </div>                   
+                  </ol> 
+                   <div class="md-caption" layout="column"  ng-show="eventStatus">  
+                         <span>Last Competed :</span>   
+                  <span  layout="column" > {{status}}</span> </div>         
+                  <div layout="row"  >
+                        <md-input-container class="theInputContainer" flex="80"> 
+                                <input ng-model="newItem.name"  placeholder="New Event" aria-label="new item" />
+                        </md-input-container>
+                       <div layout-padding>
+                             <md-button id="smallBtn" class="md-warn md-raised" ng-click="addItem()" flex="20">
+                                add
+                        </md-button></div>
+                  </div>
+           </md-card>
+             
+     </md-content>
+</div>

@@ -1,0 +1,34 @@
+<div flex="100" layout="row" layout-align="center">
+      <md-card layout="column" flex="45"  layout-padding>
+             <div   layout="row" class="md-title topPadding"  layout-align="center" >
+                 <span>Enter your Personal Details</span>
+             </div>
+            <div   layout="row" layout-wrap layout-align="center" >
+                <div  layout="row" layout-wrap  > 
+                    <md-input-container flex="50">
+                            <input ng-model="personalInfo.fname" placeholder="First Name" aria-label="name"/>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                            <input ng-model="personalInfo.lname" placeholder="Last Name" aria-label="Last Name"/>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                            <input ng-model="personalInfo.email"  placeholder="E-Mail " aria-label="name"/>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                            <input ng-model="personalInfo.pno"  placeholder="Phone Number" aria-label="name"/>
+                    </md-input-container>
+                     <md-select ng-model="personalInfo.sex" flex="50" placeholder="Sex"  aria-label="sex">
+                            <md-option value="m">Male</md-option>
+                            <md-option value="f">Female</md-option></md-select>
+                     <md-input-container>   
+                         <label>Date of Birth</label>    
+                          <md-datepicker ng-model="personalInfo.dob" placeholder="Date of Birth"  flex="50"></md-datepicker>      
+                     </md-input-container>
+                    <div flex="100" layout="row" layout-align="center">
+                           <md-button class="md-accent md-raised" aria-label="sign up">Sign Up</md-button>
+                           <md-button class="md-accent md-raised" aria-label="cancel">Cancel</md-button>
+                    </div>
+                </div>
+            </div>   
+      </md-card>
+</div>

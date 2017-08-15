@@ -1,0 +1,23 @@
+<div ng-controller="tableCtrl"  layout-margin>
+
+  <mdt-table  paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,100]}"
+				mdt-row="{'data': employeeDetails, 'table-row-id-key': 'id',
+                  'column-keys': ['name', 'age', 'position', 'company', 'email', 'phone','_id']}">
+    <mdt-header-row>
+      <mdt-column  >Name</mdt-column>
+      <mdt-column  >Age</mdt-column>
+      <mdt-column  >Position</mdt-column>
+      <mdt-column  >Company </mdt-column>
+      <mdt-column  >E-mail</mdt-column>
+      <mdt-column  >Phone</mdt-column>
+      <mdt-column  >Action</mdt-column>
+    </mdt-header-row>
+
+		<mdt-custom-cell column-key="_id" >
+		        <button class="md-warn" ng-click="clientScope.removeEmployee(value)">Remove</button>
+		</mdt-custom-cell>
+        <mdt-custom-cell column-key="name" >
+		        <span>{{value.first +" " +value.last | uppercase}}</span>
+		</mdt-custom-cell>
+  </mdt-table>
+</div>

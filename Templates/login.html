@@ -1,0 +1,24 @@
+<div layout="column"    layout-align="center"    flex="100">
+     <div layout="row" flex="35" layout-align="center"  >
+        <md-card flex="25" class="md-padding" layout="column" layout-align="center" >            
+                  <div layout="row" class="md-title" layout-align="center">        
+                        <span>LOGIN</span>
+                  </div>  
+                  <div layout="row" layout-align="center">
+                  <md-input-container flex="80">                     
+                      <input ng-model="username" placeholder="UserName"  aria-label="username" />
+                  </md-input-container></div>
+                   <div layout="row" layout-align="center">
+                  <md-input-container  flex="80">
+                      <input ng-model="password"  placeholder="Password" aria-label="password"/>
+                  </md-input-container> </div>
+                  <div layout="row"layout-align="center"  >
+                    <md-button class="md-raised md-primary" ng-click="loginCheck()" aria-label="login">
+                        Login
+                    </md-button>
+                    <md-button ui-sref="form" class="md-raised md-primary" aria-label="password">
+                        Sign Up
+                    </md-button>
+                  </div>
+        </md-card> </div>
+</div>
