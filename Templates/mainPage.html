@@ -1,22 +1,5 @@
 <div flex="100" layout="row">
-      <md-sidenav
-        class="md-sidenav-left"
-        md-component-id="left"    
-        md-whiteframe="4">
-      <md-toolbar class="md-toolbar-tools" layout="row" layout-align="center center" >
-            <span>Featuress</span>
-      </md-toolbar>
-      <md-list flex>
-            <div ng-repeat="(key,value) in sideMenuContent ">
-        <md-subheader class="md-no-sticky">{{value.name}}</md-subheader>
-            <md-list-item ng-repeat="item in value.content" ui-sref="Table"  class="md-3-line"     >
-                        {{item}}
-            </md-list-item>
-        <md-divider ></md-divider></div>
-      </md-list>
      
-
-      </md-sidenav>
 
 
 

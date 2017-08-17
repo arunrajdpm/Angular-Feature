@@ -21,24 +21,54 @@
         <script src="./node_modules/md-data-table-templates.js" ></script>
         <script src="./node_modules/md-data-table.js " ></script>
         
+        <!-- links for nvD3 Charts -->
+        <script src="./node_modules/1.0.5.angular-nvd3.min.js" ></script>
+        <script src="./node_modules/3.5.6.d3.min.js" ></script>
+        <script src="./node_modules/1.8.1.nv.d3.min.js" ></script>
+        
         <!-- User Defined Scripts -->
         <script src="./js/app.js"></script>
+         <script src="./js/theme.js"></script>
         <script src="./js/service/dataHub.js"></script>
+        <script src="./js/service/chartsData.js"></script>
+         <script src="./js/chartsCtrl.js"></script>
         <script src="./js/todoController.js"></script>
         <script src="./js/tableCtrl.js"></script>
     </head>
-    <body ng-controller="mainCtrl" flex layout="column">
+    <body ng-controller="mainCtrl" flex layout="column"  md-theme="{{ themeSelected }}">
+    {{themeSelected}}
         <md-toolbar class="md-primary  md-toolbar-tools" flex="5" layout="row">
             <md-button class="md-icon-button" aria-label="sidenav" ng-click="toggleLeft('left')" ng-show=sideNavButton>
                   <md-icon md-svg-src="./images/ic_list_black_24px.svg"></md-icon>
             </md-button>
             <span> Angular Features</span>
             <span flex></span>
+            <md-select ng-model="themeSelected" class="md-caption" aria-label="themeChooser">
+             		<md-option value="zetta1">Red</md-option>
+             		<md-option value="zetta2">Green</md-option>
+             		<md-option value="zetta3">Custom</md-option>
+            </md-select>
             <md-button class="md-icon-button" ng-click="logout()"   aria-label="logout">
                    <md-tooltip>logout</md-tooltip>
                    <md-icon md-svg-src="./images/logout.svg"></md-icon>
             </md-button>           
         </md-toolbar>
+         <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"    
+        md-whiteframe="4">
+			      <md-toolbar class="md-toolbar-tools" layout="row" layout-align="center center" >
+			            <span>Featuress</span>
+			      </md-toolbar>
+			      <md-list flex>
+			        <div ng-repeat="(key,value) in sideMenuContent ">
+			        <md-subheader class="md-no-sticky"><font color="blue">{{value.name}}</font></md-subheader>
+			            <md-list-item ng-repeat="item in value.content" ui-sref="{{item}}"  ng-click="closeSideNav()"     >
+			                        {{item}}
+			            </md-list-item>
+			        <md-divider ></md-divider></div>
+			      </md-list>
+        </md-sidenav>
         <div ui-view="" layout="column" flex="95"></div>
     </body>        
 </html>

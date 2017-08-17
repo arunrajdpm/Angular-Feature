@@ -51,3 +51,18 @@
     max-height : 40px;
     min-height : 40px;
 }
+
+.md-subheader .md-subheader-inner {
+	display: block;
+	padding: 4px;
+	color: rgba(255, 255, 255, 0.54);
+}
+
+.md-list-item-inner{
+ max-height : 40px;
+}
+
+
+#chartFont {
+	font-size : 12px;
+}

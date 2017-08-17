@@ -1,7 +1,7 @@
  (function() {
       'use strict';
 
-var app = angular.module('angularApp', ["ui.router","ngMaterial","mdDataTable"]);
+var app = angular.module('angularApp', ["ui.router","ngMaterial","mdDataTable","nvd3"]);
 
 app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	$urlRouterProvider.when("", "/login");
@@ -22,15 +22,22 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		controller : "mainCtrl"
 	})
   .state('Table', {
-		url : "/main",
+		url : "/Table",
 		templateUrl : "Templates/table.html",
+		controller : "mainCtrl"
+	})
+  .state('Charts', {
+		url : "/Charts",
+		templateUrl : "Templates/Charts.html",
 		controller : "mainCtrl"
 	});
 
 });
 
+
+
 app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSidenav){
-      $rootScope.sideNavButton = true; 
+     $rootScope.sideNavButton = true; 
      $rootScope.loginCheck = function(){
           
           if( $scope.username === "admin" &&
@@ -70,12 +77,16 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSiden
      $scope.logout = function(){      
           $rootScope.sideNavButton = false;
           $state.go("login");
+     };
+     
+     $scope.closeSideNav = function(){
+    	  $mdSidenav('left').toggle();
      }
 
      $scope.sideMenuContent = [
        {
          name : "Topics",
-         content : [ "Table "]
+         content : [ "Table ","Charts"]
        }, {
          name : "Heading2",
          content : [ "sub Head2"]
@@ -85,4 +96,6 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSiden
 
      
 });
+
+mainCtrl.$inject = ['$scope'];
 })();

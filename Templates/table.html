@@ -5,7 +5,7 @@
                   'column-keys': ['name', 'age', 'position', 'company', 'email', 'phone','_id']}">
     <mdt-header-row>
       <mdt-column  >Name</mdt-column>
-      <mdt-column  >Age</mdt-column>
+      <mdt-column  >Year Of Joining</mdt-column>
       <mdt-column  >Position</mdt-column>
       <mdt-column  >Company </mdt-column>
       <mdt-column  >E-mail</mdt-column>
@@ -17,7 +17,39 @@
 		        <button class="md-warn" ng-click="clientScope.removeEmployee(value)">Remove</button>
 		</mdt-custom-cell>
         <mdt-custom-cell column-key="name" >
-		        <span>{{value.first +" " +value.last | uppercase}}</span>
+		        <span>{{value | uppercase}}</span>
+		</mdt-custom-cell>
+  </mdt-table>
+			 <md-card layout="row" layout-align="start center">
+					   <span  class="topPadding md-padding">Filter Using :</span>
+					    <div><md-select     ng-model="filterType.position"  ng-change="showTable = true" aria-label="filter type">
+					    	<md-option ng-repeat = "item in positionType" ng-value="item">{{item}}</md-option>
+					    </md-select></div>
+			 </md-card>
+            <div ng-hide=true>
+                {{(filteredItems = (employeeDetails | filter: filterType))}}
+            </div>
+   <mdt-table  paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,100]}" ng-show=showTable
+				mdt-row="{'data': filteredItems,'table-row-id-key': 'id',
+                  'column-keys': ['name', 'age', 'position', 'company', 'email', 'phone','_id']}">
+    <mdt-header-row>
+      <mdt-column  >Name</mdt-column>
+      <mdt-column  >Year Of Joining</mdt-column>
+      <mdt-column  >Position</mdt-column>
+      <mdt-column  >Company </mdt-column>
+      <mdt-column  >E-mail</mdt-column>
+      <mdt-column  >Phone</mdt-column>
+      <mdt-column  >Action</mdt-column>
+    </mdt-header-row>
+
+		<mdt-custom-cell column-key="_id" >
+		        <button class="md-warn" ng-click="clientScope.removeEmployee(value)">Remove</button>
+		</mdt-custom-cell>
+		<mdt-custom-cell column-key="position" >
+		        <span>{{value}}</span>
+		</mdt-custom-cell>
+        <mdt-custom-cell column-key="name" >
+		        <span>{{value | uppercase}}</span>
 		</mdt-custom-cell>
   </mdt-table>
 </div>

@@ -1,0 +1,25 @@
+<div  layout="column" flex="100" ng-controller="chartsCtrl">
+		 <div flex="45" layout="row">
+		 		<md-card flex="50">		 		 
+		 				<nvd3 options="optionsbar" data="data" margin="discreteBarMargin"
+							id="chartFont"></nvd3>
+		 		</md-card>
+		 		<md-card flex="50">
+		 				<nvd3 options="options" data="dataPie" id="chartFont"></nvd3>
+		 		</md-card>
+		 </div>
+		 <md-content flex="55" >
+		 			<md-card layout="row" ng-repeat="(key,value) in dataPie" layout-padding layout-align="space-between center"  >
+		 					<div flex="40" layout="row"><span flex="20">{{value.label}}</span>
+		 					<span  flex="20" ng-show="editMode">{{value.value}}</span>
+		 					<md-input-container ng-show="!editMode" class="theInputContainer">
+		 							<input ng-model="value.value" aria-label="quantity" />
+		 					</md-input-container>
+		 					</div>					 					
+		 				  <div><md-button class="md-raised md-warn" ng-click="editMode = !editMode" aria-label="action">
+		 							<span ng-show="editMode">Edit</span>
+		 							<span  ng-show="!editMode">Save</span>
+		 					</md-button></div>
+		 			</md-card>		 
+		 </md-content>
+</div>
