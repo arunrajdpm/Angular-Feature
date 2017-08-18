@@ -28,15 +28,23 @@
         
         <!-- User Defined Scripts -->
         <script src="./js/app.js"></script>
-         <script src="./js/theme.js"></script>
+        <script src="./js/theme.js"></script>
         <script src="./js/service/dataHub.js"></script>
         <script src="./js/service/chartsData.js"></script>
-         <script src="./js/chartsCtrl.js"></script>
+        <script src="./js/chartsCtrl.js"></script>
         <script src="./js/todoController.js"></script>
         <script src="./js/tableCtrl.js"></script>
+        <script src="./js/randomCtrl.js"></script>
     </head>
     <body ng-controller="mainCtrl" flex layout="column"  md-theme="{{ themeSelected }}">
-    {{themeSelected}}
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https:://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10&appId=1623565597950713";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <md-toolbar class="md-primary  md-toolbar-tools" flex="5" layout="row">
             <md-button class="md-icon-button" aria-label="sidenav" ng-click="toggleLeft('left')" ng-show=sideNavButton>
                   <md-icon md-svg-src="./images/ic_list_black_24px.svg"></md-icon>
@@ -64,7 +72,7 @@
 			        <div ng-repeat="(key,value) in sideMenuContent ">
 			        <md-subheader class="md-no-sticky"><font color="blue">{{value.name}}</font></md-subheader>
 			            <md-list-item ng-repeat="item in value.content" ui-sref="{{item}}"  ng-click="closeSideNav()"     >
-			                        {{item}}
+			                        {{item | uppercase}}
 			            </md-list-item>
 			        <md-divider ></md-divider></div>
 			      </md-list>

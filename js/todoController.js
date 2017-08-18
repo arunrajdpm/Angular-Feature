@@ -86,5 +86,5 @@
             };
 
         });
-        todoCtrl.$inject = [$scope,$mdDialog,$mdToast];
+     
 })();

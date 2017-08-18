@@ -30,12 +30,14 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		url : "/Charts",
 		templateUrl : "Templates/Charts.html",
 		controller : "mainCtrl"
+	})
+	.state('random Data Generator', {
+		url : "/randomDataGenerator",
+		templateUrl : "Templates/randomDataGenerator.html",
+		controller : "mainCtrl"
 	});
 
 });
-
-
-
 app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSidenav){
      $rootScope.sideNavButton = true; 
      $rootScope.loginCheck = function(){
@@ -86,7 +88,7 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSiden
      $scope.sideMenuContent = [
        {
          name : "Topics",
-         content : [ "Table ","Charts"]
+         content : [ "Table ","Charts","random Data Generator"]
        }, {
          name : "Heading2",
          content : [ "sub Head2"]
@@ -97,5 +99,4 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSiden
      
 });
 
-mainCtrl.$inject = ['$scope'];
 })();

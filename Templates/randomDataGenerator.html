@@ -1,0 +1,29 @@
+<div layout="column"  ng-controller="randomCtrl">	
+		<div layout="row">
+		<div layout="column" flex="33">
+				 <div layout="row" ng-repeat="(key, value) in objProp" layout-padding style="max-height : 60px;">
+				 		<md-input-container class="md-block  ">
+				 			<input ng-model="value.name" placeholder="Property Name" aria-label="input"/>
+				 		</md-input-container>
+				 		<div flex="25">
+				 		<md-select ng-model="value.type" flex="100" aria-label="type" placeholder="Property Type">
+				 				<md-option ng-repeat="item in availableType" ng-value="item" >{{item}}</md-option>
+				 		</md-select></div>
+				 		<div layout-padding style="margin-top : 15px;">
+				 		<md-button class="md-icon-button topPadding" ng-click="removeField(value)">
+				 				<md-icon md-svg-src="./images/delete.svg"></md-icon>
+				 		</md-button></div>
+				 </div></div>
+		  <div layout="column" layout-margin>
+				 <md-input-container class="md-block theInputContainer">
+				 			<input ng-model="numOfCounts" aria-label="ocunt" placeholder="Below 60"/>
+				 </md-input-container>
+				 <md-button ng-click="genrator()" aria-label="generator"> Generate
+				 </md-button>
+		 </div></div>
+		<div class="md-padding"> <md-button class="md-primary" ng-click="addAnother()"> Add Another Fields</md-button></div>
+		
+		 <md-card class="md-padding" flex="30">
+		 		Your JSON Array : {{result | json}}
+		 </md-card>
+</div>

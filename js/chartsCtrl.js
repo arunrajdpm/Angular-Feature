@@ -79,6 +79,6 @@
 				};
             
         });
-        chartsCtrl.$inject = [$scope, chartsData];
+       
         
 })();

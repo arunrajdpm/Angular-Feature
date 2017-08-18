@@ -20,12 +20,13 @@
 		        <span>{{value | uppercase}}</span>
 		</mdt-custom-cell>
   </mdt-table>
-			 <md-card layout="row" layout-align="start center">
+  <div layout="row"> 
+			 <md-card flex="15" layout="row" layout-align="start center">
 					   <span  class="topPadding md-padding">Filter Using :</span>
 					    <div><md-select     ng-model="filterType.position"  ng-change="showTable = true" aria-label="filter type">
 					    	<md-option ng-repeat = "item in positionType" ng-value="item">{{item}}</md-option>
 					    </md-select></div>
-			 </md-card>
+			 </md-card></div>
             <div ng-hide=true>
                 {{(filteredItems = (employeeDetails | filter: filterType))}}
             </div>

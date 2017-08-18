@@ -20,5 +20,5 @@
             
         });
 
-        tableCtrl.$inject = [$scope, dataHub];  
+      
 })();
