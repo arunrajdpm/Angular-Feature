@@ -1,7 +1,7 @@
  (function() {
       'use strict';
 
-var app = angular.module('angularApp', ["ui.router","ngMaterial","mdDataTable","nvd3"]);
+var app = angular.module('angularApp', ["ui.router","ngMaterial","mdDataTable","nvd3",'pascalprecht.translate']);
 
 app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	$urlRouterProvider.when("", "/login");
@@ -38,7 +38,43 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	});
 
 });
-app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSidenav){
+
+app.config(["$translateProvider",function($translateProvider){
+	  
+	  
+	  var tn_translations = {
+			  
+	    "First Name" : "முதல் பெயர்",
+	    "Last Name" : "கடைசி பெயர்",
+	    "E-mail" : "மின்னஞ்சல்",
+	    "Phone Number" : "தொலைபேசி எண்", 
+	    "Sex" : "பாலினம்",
+	    "Date Of Birth" : "பிறந்த தேதி" ,
+        "Male"  : "ஆண்" ,
+        "Female"  :" பெண்" ,
+        "Sign Up":"பதிவு செய்",
+        "Cancel" : "ரத்து",
+        "Enter your Personal Details" : "உங்கள் தனிப்பட்ட விவரங்களை உள்ளிடவும்"
+        
+	  }
+
+	  
+
+	  $translateProvider.translations('tn',tn_translations);
+	  
+	  
+	  $translateProvider.preferredLanguage('en');
+	  
+	}]);
+
+
+
+
+app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSidenav, $translate){
+	
+		$rootScope.chooseLanguage = function(){		
+			$translate.use() === 'en'? $translate.use('tn') : $translate.use('en');		
+		}
      $rootScope.sideNavButton = true; 
      $rootScope.loginCheck = function(){
           

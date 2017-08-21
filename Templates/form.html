@@ -1,32 +1,36 @@
 <div flex="100" layout="row" layout-align="center">
-      <md-card layout="column" flex="45"  layout-padding>
-             <div   layout="row" class="md-title topPadding"  layout-align="center" >
-                 <span>Enter your Personal Details</span>
+      <md-card layout="column" flex="45"  layout-padding>          
+             <div   layout="row" class="md-title topPadding"  layout-align="center center" >
+                <span flex></span> <span>{{'Enter your Personal Details'| translate}}</span><span flex></span>
+                 <div class='md-caption'>
+                 <md-select ng-model="trans" ng-change="chooseLanguage()" placeholder="Choose Your Language">
+                  		<md-option value="en">English</md-option>
+                  		<md-option value="tn">Tamil</md-option>
+                 </md-select></div>
              </div>
             <div   layout="row" layout-wrap layout-align="center" >
                 <div  layout="row" layout-wrap  > 
                     <md-input-container flex="50">
-                            <input ng-model="personalInfo.fname" placeholder="First Name" aria-label="name"/>
+                            <input ng-model="personalInfo.fname" placeholder="{{'First Name'| translate}}" aria-label="name"/>
                     </md-input-container>
                     <md-input-container flex="50">
-                            <input ng-model="personalInfo.lname" placeholder="Last Name" aria-label="Last Name"/>
+                            <input ng-model="personalInfo.lname" placeholder="{{'Last Name'| translate}}" aria-label="Last Name"/>
                     </md-input-container>
                     <md-input-container flex="50">
-                            <input ng-model="personalInfo.email"  placeholder="E-Mail " aria-label="name"/>
+                            <input ng-model="personalInfo.email"  placeholder="{{'E-mail'| translate}}" aria-label="name"/>
                     </md-input-container>
                     <md-input-container flex="50">
-                            <input ng-model="personalInfo.pno"  placeholder="Phone Number" aria-label="name"/>
+                            <input ng-model="personalInfo.pno"  placeholder="{{'Phone Number'| translate}}" aria-label="name"/>
                     </md-input-container>
-                     <md-select ng-model="personalInfo.sex" flex="50" placeholder="Sex"  aria-label="sex">
-                            <md-option value="m">Male</md-option>
-                            <md-option value="f">Female</md-option></md-select>
-                     <md-input-container>   
-                         <label>Date of Birth</label>    
-                          <md-datepicker ng-model="personalInfo.dob" placeholder="Date of Birth"  flex="50"></md-datepicker>      
+                     <div flex="50"><md-select ng-model="personalInfo.sex"   placeholder="{{'Sex'| translate}}"  aria-label="sex">
+                            <md-option value="m">{{'Male'| translate}}</md-option>
+                            <md-option value="f">{{'Female'| translate}}</md-option></md-select></div>
+                     <md-input-container>                         
+                          <md-datepicker ng-model="personalInfo.dob" placeholder="{{'Date Of Birth'| translate}}"  flex="50"></md-datepicker>      
                      </md-input-container>
                     <div flex="100" layout="row" layout-align="center">
-                           <md-button class="md-accent md-raised" aria-label="sign up">Sign Up</md-button>
-                           <md-button class="md-accent md-raised" aria-label="cancel">Cancel</md-button>
+                           <md-button class="md-accent md-raised" aria-label="sign up">{{'Sign Up'| translate}}</md-button>
+                           <md-button class="md-accent md-raised" aria-label="cancel">{{'Cancel'| translate}}</md-button>
                     </div>
                 </div>
             </div>   
