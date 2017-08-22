@@ -71,11 +71,44 @@ app.config(["$translateProvider",function($translateProvider){
 
 
 
-app.controller("mainCtrl", function($scope, $state,$mdDialog,$rootScope,$mdSidenav, $translate){
+app.controller("mainCtrl", function($scope, $state,$mdDialog,$http,$rootScope,$mdSidenav, $translate){
 	
-		$rootScope.chooseLanguage = function(){		
+	
+	 
+	
+//	
+//	  var req = {
+//        method: 'GET',
+//        url: "",
+//        headers: {         
+//            "Content-type": "application/json; charset=utf-8"
+//        },
+//     
+//    }
+//
+//    var  successCallBack = function(response){
+//		  	console.log(response.data);
+//		
+//    }
+//
+//    var errorCallBack  = function (reason) {
+//    	console.log(reason);
+//    }
+//
+//    $http(req).then(successCallBack, errorCallBack); 
+    
+    
+    $http.get("http://www.mocky.io/v2/599c2b072900004a00211009").then(function(response){
+    	
+    	console.log(response.data.hello);
+    	
+    })
+	
+	$rootScope.chooseLanguage = function(){		
 			$translate.use() === 'en'? $translate.use('tn') : $translate.use('en');		
-		}
+		};
+		
+		
      $rootScope.sideNavButton = true; 
      $rootScope.loginCheck = function(){
           

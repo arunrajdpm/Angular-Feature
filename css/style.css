@@ -9,7 +9,10 @@
     margin: 6px 0;
     vertical-align: middle;
 }
-
+.cardHeader {
+	min-height: 45px;  
+	background-color: #42f4c2;
+}
 #smallBtn {
     display: inline-block;
     position: relative;
