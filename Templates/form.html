@@ -9,15 +9,26 @@
                  </md-select></div>
              </div>
             <div   layout="row" layout-wrap layout-align="center" >
+             <form name="signUp">
                 <div  layout="row" layout-wrap  > 
                     <md-input-container flex="50">
-                            <input ng-model="personalInfo.fname" placeholder="{{'First Name'| translate}}" aria-label="name"/>
+                            <input ng-model="personalInfo.fname" name="fname" ng-required=true placeholder="{{'First Name'| translate}}" aria-label="name"/>
+                             <div ng-messages="signUp.fname.$error">
+						          <div ng-message="required">This is required.</div>						          
+						     </div>
                     </md-input-container>
                     <md-input-container flex="50">
-                            <input ng-model="personalInfo.lname" placeholder="{{'Last Name'| translate}}" aria-label="Last Name"/>
+                            <input ng-model="personalInfo.lname"  placeholder="{{'Last Name'| translate}}"
+                            			 aria-label="Last Name"/>
                     </md-input-container>
                     <md-input-container flex="50">
-                            <input ng-model="personalInfo.email"  placeholder="{{'E-mail'| translate}}" aria-label="name"/>
+                            <input ng-model="personalInfo.email" name="email" placeholder="{{'E-mail'| translate}}"  ng-required=true
+                             ng-minlength="10" ng-maxlength="100" ng-pattern="/^.+@.+\..+$/"  aria-label="email"/>                               
+                             <div ng-messages="signUp.email.$error" >
+						          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+						            Your email must be between 10 and 100 characters long and look like an e-mail address.
+						          </div>
+						      </div> 
                     </md-input-container>
                     <md-input-container flex="50">
                             <input ng-model="personalInfo.pno"  placeholder="{{'Phone Number'| translate}}" aria-label="name"/>
@@ -32,7 +43,7 @@
                            <md-button class="md-accent md-raised" aria-label="sign up">{{'Sign Up'| translate}}</md-button>
                            <md-button class="md-accent md-raised" aria-label="cancel">{{'Cancel'| translate}}</md-button>
                     </div>
-                </div>
+                </div></form>
             </div>   
       </md-card>
 </div>

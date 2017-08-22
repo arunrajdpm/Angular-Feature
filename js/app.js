@@ -1,7 +1,8 @@
  (function() {
       'use strict';
 
-var app = angular.module('angularApp', ["ui.router","ngMaterial","mdDataTable","nvd3",'pascalprecht.translate']);
+var app = angular.module('angularApp', ["ui.router","ngMaterial","mdDataTable",
+                                        "nvd3",'pascalprecht.translate','ngMessages']);
 
 app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 	$urlRouterProvider.when("", "/login");
