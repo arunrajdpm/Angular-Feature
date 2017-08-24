@@ -25,7 +25,17 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
   .state('Table', {
 		url : "/Table",
 		templateUrl : "Templates/table.html",
-		controller : "mainCtrl"
+		controller : "tableCtrl",
+		resolve: {
+		    employeeDetails: function(dataHub) {
+				  return   dataHub.getDetails().then(function(response){ 
+				    	 var data = response.value;
+				    	 
+				    	 
+		            	 return  data;
+		            });
+		    }
+		  }
 	})
   .state('Charts', {
 		url : "/Charts",
@@ -36,6 +46,27 @@ app.config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 		url : "/randomDataGenerator",
 		templateUrl : "Templates/randomDataGenerator.html",
 		controller : "mainCtrl"
+	})
+	.state('Ui-Router', {
+		url : "/UI-Router",
+		templateUrl : "Templates/routing.html",
+		controller : "routeCtrl",
+		resolve: {
+		    employeeDetails: function(dataHub) {
+				  return   dataHub.getDetails().then(function(response){ 
+				    	 var data = response.value;
+				    	 
+				    	 
+		            	 return  data;
+		            });
+		    }
+		  }
+	})
+	.state('Ui-Router.Details', {
+		url : '/:emp?id',
+		templateUrl : "Templates/details.html",
+		controller : "routeCtrl"
+		
 	});
 
 });
@@ -72,37 +103,6 @@ app.config(["$translateProvider",function($translateProvider){
 
 
 app.controller("mainCtrl", function($scope, $state,$mdDialog,$http,$rootScope,$mdSidenav, $translate){
-	
-	
-	 
-	
-//	
-//	  var req = {
-//        method: 'GET',
-//        url: "",
-//        headers: {         
-//            "Content-type": "application/json; charset=utf-8"
-//        },
-//     
-//    }
-//
-//    var  successCallBack = function(response){
-//		  	console.log(response.data);
-//		
-//    }
-//
-//    var errorCallBack  = function (reason) {
-//    	console.log(reason);
-//    }
-//
-//    $http(req).then(successCallBack, errorCallBack); 
-    
-    
-    $http.get("http://www.mocky.io/v2/599c2b072900004a00211009").then(function(response){
-    	
-    	console.log(response.data.hello);
-    	
-    })
 	
 	$rootScope.chooseLanguage = function(){		
 			$translate.use() === 'en'? $translate.use('tn') : $translate.use('en');		
@@ -157,11 +157,11 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$http,$rootScope,$m
 
      $scope.sideMenuContent = [
        {
-         name : "Topics",
+         name : "Components",
          content : [ "Table ","Charts","random Data Generator"]
        }, {
-         name : "Heading2",
-         content : [ "sub Head2"]
+         name : "Functionality",
+         content : [ "Ui-Router"]
        }
 
      ];

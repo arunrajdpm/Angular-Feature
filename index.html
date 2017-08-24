@@ -37,6 +37,7 @@
         <script src="./js/todoController.js"></script>
         <script src="./js/tableCtrl.js"></script>
         <script src="./js/randomCtrl.js"></script>
+        <script src="./js/routeCtrl.js"></script>
     </head>
     <body ng-controller="mainCtrl" flex layout="column"  md-theme="{{ themeSelected }}">
         <md-toolbar class="md-primary  md-toolbar-tools" flex="5" layout="row">
@@ -64,8 +65,8 @@
 			      </md-toolbar>
 			      <md-list flex>
 			        <div ng-repeat="(key,value) in sideMenuContent ">
-			        <md-subheader class="md-no-sticky"><font color="blue">{{value.name}}</font></md-subheader>
-			            <md-list-item ng-repeat="item in value.content" ui-sref="{{item}}"  ng-click="closeSideNav()"     >
+			        <md-subheader class="md-no-sticky"><font color="blue">{{value.name | uppercase}}</font></md-subheader>
+			            <md-list-item ng-repeat="item in value.content" class="md-body-1" ui-sref="{{item}}"  ng-click="closeSideNav()"     >
 			                        {{item | uppercase}}
 			            </md-list-item>
 			        <md-divider ></md-divider></div>

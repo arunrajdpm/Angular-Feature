@@ -1,0 +1,15 @@
+<div layout="row" flex="100">
+ 	<md-content flex="20" md-whiteframe="12">	
+ 	 <md-list  ng-cloak>
+		  <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
+			  <md-list-item ng-repeat="emp in employeeDetails"  ui-sref="Ui-Router.Details({emp: emp.name, id: $index})">
+			         <img ng-src="{{emp.picture}}"/>
+			   		 <span layout-padding> {{ emp.name  }} </span>		     
+			  </md-list-item>		  
+	</md-list>
+ 	</md-content><md-divider></md-divider>	  
+ 	<div flex="75">
+ 		  <ui-view></ui-view>
+ 	</div>
+
+</div>

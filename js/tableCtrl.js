@@ -3,11 +3,10 @@
 
         var app = angular.module('angularApp');
 
-        app.controller("tableCtrl", function($scope, dataHub){
+        app.controller("tableCtrl", function($scope, employeeDetails){
 
-  		   
-                $scope.employeeDetails = dataHub.employeeDetails();
-                
+        	 	$scope.employeeDetails = employeeDetails;
+
                 $scope.positionType = ['com',"org","gov","info","mil","net","edu"];
 
                 $scope.removeEmployee = function(id){

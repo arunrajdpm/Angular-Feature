@@ -22,7 +22,12 @@
 						$scope.email = [];
 						$scope.companyName = [];
 						$scope.position = [];
-						angular.forEach(dataHub.employeeDetails(), function(
+						
+						 dataHub.getDetails().then(function(response){
+			                	
+			                	$scope.employeeDetails = response.value;
+			                });
+						angular.forEach($scope.employeeDetails, function(
 								item) {
 							$scope.randomNames.push(item.name);
 							$scope.phone.push(item.phone);

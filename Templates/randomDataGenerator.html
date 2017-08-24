@@ -1,6 +1,6 @@
 <div layout="column"  ng-controller="randomCtrl">	
 		<div layout="row">
-		<div layout="column" flex="33" flex-gt-xs="66" flex-xs="100">
+			<div layout="column" flex="33" flex-gt-xs="66" flex-xs="100">
 				 <div layout="row" ng-repeat="(key, value) in objProp" layout-padding style="max-height : 60px;">
 				 		<md-input-container class="md-block  ">
 				 			<input ng-model="value.name" placeholder="Property Name" aria-label="input"/>
@@ -10,30 +10,30 @@
 				 				<md-option ng-repeat="item in availableType" ng-value="item" >{{item}}</md-option>
 				 		</md-select></div>
 				 		<div layout-padding style="margin-top : 15px;">
-				 		<md-button class="md-icon-button topPadding" ng-click="removeField(value)">
+				 		<md-button class="md-icon-button topPadding" ng-click="removeField(value)" aria-label="icon delete">
 				 				<md-icon md-svg-src="./images/delete.svg"></md-icon>
 				 		</md-button></div>
-				 </div></div>
+				 </div>
+		     </div>
 		 </div>
 		 <div class="md-padding">
-		 <md-button class="md-raised md-accent" aria-label="Addfield" ng-click="addAnother()">Add Another Field</md-button>
+		  	 <md-button class="md-raised md-accent" aria-label="Addfield" ng-click="addAnother()">Add Another Field</md-button>
 		 </div>
 		 <div layout="row" layout-margin>
-		  <div layout="column"  flex="25" >
-				 <md-input-container class="md-block theInputContainer">
-				 			<input ng-model="numOfCounts" aria-label="ocunt" placeholder="Below 60"/>
-				 </md-input-container>
-				 <div><md-button ng-click="genrator(); showResult = !showResult;" aria-label="generator"> Generate
-				 </md-button></div>
-		 </div></div>
-		
+			  <div layout="column"  flex="25" >
+					 <md-input-container class="md-block theInputContainer">
+					 			<input ng-model="numOfCounts" aria-label="ocunt" placeholder="Below 60"/>
+					 </md-input-container>
+					 <div><md-button ng-click="genrator(); showResult = !showResult;" aria-label="generator"> Generate
+					 </md-button></div>
+			 </div>
+		 </div>
 		<div layout="row" ng-show="showResult">
-		 <card-layout class="md-padding" name="YOUR JSON ARRAY" flex="30" flex-xs="100">
-		 		<div layout="column" layout-padding > 
-		 		
-		 		<div flex="15">
-		 		 {{result | json}}</div>
-		 		 
-		 		 </div>
-		 </card-layout></div>
+			 <card-layout class="md-padding" name="YOUR JSON ARRAY" flex="30" flex-xs="100">
+			 		<div layout="column" layout-padding > 	 		
+			 		<div flex="15">
+			 			 {{result | json}}</div> 		 
+			 		 </div>
+			 </card-layout>
+		 </div>
 </div>
