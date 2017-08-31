@@ -1,0 +1,26 @@
+<md-card>
+					  <md-toolbar class='md-warn md-toolbar-tools' ng-click="collapse()">{{user.name}}</md-toolbar><md-divider></md-divider>
+					  <md-card-content class="panel-body" ng-show=collapsed>
+					    
+					    <address></address>
+					    
+					    <br />
+					    
+					    <span class="md-title">Friends:</span>
+					    <ul>
+					      <li ng-repeat='friend in user.friends'>
+					        {{friend}}
+					        <md-button class="md-icon-button" ng-click="showBut = ! showBut">
+					        		<md-icon md-svg-src="./images/delete.svg" />
+					        </md-button>
+					        <div layout="row" ng-show =showBut>
+					        <md-button class="md-warn" ng-click="remove(friend)">Remove</md-button>
+					        <md-button class="md-warn" ng-click="showBut = ! showBut">Cancel</md-button></div>
+					      </li>
+					    </ul>
+					    <div ng-show="!!user.rank">
+					      Rank: {{user.rank}}
+					    </div>
+					    <md-button ng-show="!user.rank" class="btn btn-success" ng-click="knightMe(user)">Knight Me</md-button>
+					  </md-card-content>
+</md-card>	

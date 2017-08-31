@@ -1,5 +1,5 @@
  <div layout="column" layout-padding>		 
- 		 <card-layout name="{{emp.name}}"  flex="66">
+ 		 <card-layout name="{{emp.name}}"  >
  				<div layout="row" flex="100">
 	 				<div layout="column" flex="80" layout-padding>
 		 				<div layout="row">
@@ -32,5 +32,10 @@
  				
  					<img ng-src="{{emp.picture}}" flex="20" style="max-width:150px; max-height:150px" />	
  				</div>
- 			</card-layout>
- </div>
+ 			</card-layout>	
+ 			<div layout="row">
+				   <user-info user="user1" collapsed="true"   flex="33"></user-info>
+				   <user-info user="user2" collapsed="false"  flex="33"></user-info>
+			</div>
+			
+ 			</div>

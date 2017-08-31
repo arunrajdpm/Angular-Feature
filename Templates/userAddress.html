@@ -1,0 +1,10 @@
+<div ng-show=collapsed class="md-body-1">
+					      <span class="md-title" ng-click="collapse()">Address:</span><br/>
+					      {{user.address.street}} <br />
+					      {{user.address.city}}<br />
+					      {{user.address.planet}}
+</div>	
+<div ng-show=!collapsed class="md-body-1">
+					      <span class="md-title" ng-click="collapse()">Address:</span><br/>					     
+					      {{user.address.planet}}
+</div>	
