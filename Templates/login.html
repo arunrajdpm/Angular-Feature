@@ -13,15 +13,15 @@
                       <input ng-model="password"  placeholder="Password" aria-label="password"/>
                   </md-input-container> </div>
                   <div layout="row"layout-align="center"  >
-                    <md-button class="md-raised md-primary  " ng-click="loginCheck()" aria-label="login">
-                        Login
-                    </md-button>
-                    <md-button ui-sref="form" class="md-raised md-primary" aria-label="password">
-                        Sign Up
-                    </md-button>
-                  </div>
-                  <div class="fb-login-button" data-width="30" 
-                  		data-max-rows="1" data-size="small" data-button-type="login_with"
-                  		data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true"></div>	               		
+	                    <md-button class="md-raised md-primary  " ng-click="loginCheck()" aria-label="login">
+	                        Login
+	                    </md-button>
+	                    <md-button ui-sref="form" class="md-raised md-primary" aria-label="password">
+	                        Sign Up
+	                    </md-button>                  
+                  </div> 
+                   <div layout-padding layout="row"layout-align="center"  >                 
+						<md-button class="md-primary" ng-click="fbLogin()">Login with Facebook</md-button>			
+				</div>                   		
         </md-card> </div> 
 </div>

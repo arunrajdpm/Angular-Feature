@@ -39,9 +39,10 @@
         <script src="./js/todoController.js"></script>
         <script src="./js/tableCtrl.js"></script>
         <script src="./js/randomCtrl.js"></script>
-        <script src="./js/routeCtrl.js"></script>
+        <script src="./js/routeCtrl.js"></script>     
     </head>
     <body ng-controller="mainCtrl" flex layout="column"  md-theme="{{ themeSelected }}">
+    <div id="fb-root"></div>   
         <md-toolbar class="md-primary  md-toolbar-tools" flex="5" layout="row">
             <md-button class="md-icon-button" aria-label="sidenav" ng-click="toggleLeft('left')" ng-show=sideNavButton>
                   <md-icon md-svg-src="./images/ic_list_black_24px.svg"></md-icon>
@@ -56,7 +57,7 @@
             <md-button class="md-icon-button" ng-click="logout()"   aria-label="logout">
                    <md-tooltip>logout</md-tooltip>
                    <md-icon md-svg-src="./images/logout.svg"></md-icon>
-            </md-button>           
+            </md-button>               
         </md-toolbar>
          <md-sidenav
         class="md-sidenav-left"

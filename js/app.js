@@ -100,6 +100,24 @@ app.config(["$translateProvider",function($translateProvider){
 	}]);
 
 
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '503475896666120',
+      status     : true, 
+      cookie     : true,
+      xfbml      : true,
+      oauth      : true,
+    });
+  };
+  (function(d){
+     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     d.getElementsByTagName('head')[0].appendChild(js);
+   }(document));
+
+ 
+
 
 
 app.controller("mainCtrl", function($scope, $state,$mdDialog,$http,$rootScope,$mdSidenav, $translate){
@@ -110,13 +128,28 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$http,$rootScope,$m
 		
 		
      $rootScope.sideNavButton = true; 
+     
+     $rootScope.fbLogin = function(){
+    	 FB.login(function(response) {
+ 		    if (response.authResponse) {
+ 		    
+ 		     FB.api('/me', function(response) {
+ 		    	
+ 		    	 $state.go("main");
+ 		     });
+ 		    } else {
+ 		     console.log('User cancelled login or did not fully authorize.');
+ 		    }
+ 		});
+     };
+     
      $rootScope.loginCheck = function(){
-          
+
           if( $scope.username === "admin" &&
               $scope.password === "admin")
              {     
                 $rootScope.sideNavButton = true;             
-                $state.go("main");
+    	 $state.go("main");
                 
              }else{
                   $mdDialog.show(
@@ -125,7 +158,7 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$http,$rootScope,$m
   		            .title('Login Failed')
   		            .textContent('Enter the Correct Credentials !!!')
   		            .ariaLabel('Subscriber Creation')
-  		            .ok('ok!') 		            
+ 		            .ok('ok!') 		            
   		            .openFrom({
   		              top: -50,
   		              width: 30,
@@ -135,7 +168,7 @@ app.controller("mainCtrl", function($scope, $state,$mdDialog,$http,$rootScope,$m
   		              left: 1500
   		            }));
              }
-     }
+     };
 
     $scope.toggleLeft = buildToggler('left');
      
