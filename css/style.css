@@ -2,6 +2,15 @@
     padding-top: 12px;
 }
 
+.flipped {
+  -webkit-transform: rotatey(-180deg);
+}
+
+.flip {
+  -webkit-transition: 0.10s;
+}
+
+
 .theInputContainer{
     display: inline-block;
     position: relative;

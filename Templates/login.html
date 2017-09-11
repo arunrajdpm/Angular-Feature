@@ -1,6 +1,6 @@
 <div layout="column"    layout-align="center"    flex="100">
-     <div layout="row" flex="35" layout-align="center"  >
-        <md-card flex="25" class="md-padding" layout="column" layout-align="center" >            
+     <div layout="row" class="flip" flex="35" layout-align="center" ng-class="{'flipped':isFlipped}" >
+        <md-card   flex="25" class="md-padding face back" layout="column" layout-align="center" ng-show="!isFlipped" >            
                   <div layout="row" class="md-title" layout-align="center">        
                         <span>LOGIN</span>
                   </div>  
@@ -21,7 +21,21 @@
 	                    </md-button>                  
                   </div> 
                    <div layout-padding layout="row"layout-align="center"  >                 
-						<md-button class="md-primary" ng-click="fbLogin()">Login with Facebook</md-button>			
-				</div>                   		
-        </md-card> </div> 
+						 <span class="md-caption" ng-click="isFlipped=!isFlipped" >
+						    <font color="blue" style="text-decoration: underline;">Forget Password?</font>
+						 </span>			
+				   </div>                   		
+        </md-card> 
+         <md-card flex="25" class="md-padding face front" layout="column" layout-align="center" ng-show="isFlipped" style="-webkit-transform: rotatey(-180deg);" >            
+                
+                   <div   layout="column"layout-align="center"  >                 
+						 <md-input-container class="md-block">
+						 		<input ng-model="username" placeholder="Enter Your User Name" />
+						 </md-input-container>	
+						<div> <md-button ng-click="isFlipped=!isFlipped" ng-class="md-primary"> Send Link</md-button></div></div>
+				   </div>                   		
+        </md-card> 
+        
+        
+        </div> 
 </div>
